@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Order Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.95); 
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+      width: 500px;
+      z-index: 2;
+      position: relative;
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    select,
+    textarea,
+    input[type="date"],
+    input[type="time"],
+    input[type="range"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #cccccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      background: #fff;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+
+    button {
+      background-color: #ff4500;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #e03e00;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #ff4500;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Restaurant Order Form</h2>
+    <form action="restaurant.php" method="POST">
+      <div class="form-group">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+      </div>
+
+      <div class="form-group">
+        <label for="food">Select Food Item:</label>
+        <select id="food" name="food" required>
+          <option value="" disabled selected>Select an item</option>
+          <option value="pizza">Pizza</option>
+          <option value="burger">Burger</option>
+          <option value="pasta">Pasta</option>
+          <option value="salad">Salad</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Extras:</label>
+        <input type="checkbox" id="cheese" name="extras" value="cheese">
+        <label for="cheese">Cheese</label>
+        <input type="checkbox" id="bacon" name="extras" value="bacon">
+        <label for="bacon">Bacon</label>
+        <input type="checkbox" id="veggies" name="extras" value="veggies">
+        <label for="veggies">Extra Veggies</label>
+      </div>
+
+      <div class="form-group">
+        <label>Payment Method:</label>
+        <input type="radio" id="credit" name="payment" value="credit" required>
+        <label for="credit">Credit Card</label>
+        <input type="radio" id="cash" name="payment" value="cash">
+        <label for="cash">Cash</label>
+      </div>
+
+      <div class="form-group">
+        <label for="notes">Additional Notes:</label>
+        <textarea id="notes" name="notes" rows="4" placeholder="Any special requests?"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+      </div>
+
+      <div class="form-group">
+        <label for="date">Order Date:</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+
+      <div class="form-group">
+        <label for="time">Pickup Time:</label>
+        <input type="time" id="time" name="time" required>
+      </div>
+
+      <div class="form-group">
+        <label for="rating">Rate Our Service (1-10):</label>
+        <input type="range" id="rating" name="rating" min="1" max="10" step="1" value="5">
+        <p>Your Rating: <span id="ratingValue">5</span></p>
+      </div>
+
+      <button type="submit" value="submit">Submit Order</button>
+    </form>
+  </div>
+</body>
+</html>
